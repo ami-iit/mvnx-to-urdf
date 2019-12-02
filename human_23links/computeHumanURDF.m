@@ -35,7 +35,9 @@ end
 %% Create a dialog box for user input data
 prompt = {'Subject number (e.g., 1):', ...
     'Model DoFs (e.g., 48 or 66):', ...
-    'Subject mass [Kg]:'};
+    'Do you want to include the hands? (y or n)', ...
+    'Subject mass [Kg] (e.g., 60, 60.5):',...
+    'Subject height [m] (e.g., 1.60):'};
 dlgtitle = 'Settings';
 userAnswer = inputdlg(prompt,dlgtitle);
 
@@ -56,8 +58,26 @@ if strcmp(userAnswer(2),'66')
         bucket.subjectID, str2double(cell2mat(userAnswer(2))));
 end
 
+% Presence of the hands
+modelWithHands = false; % by default
+if strcmp(userAnswer(3),'y')
+    modelWithHands = true;
+    % template 48Dofs with the hands
+    if model48DoFs
+        bucket.filenameURDF = sprintf(fullfile(bucket.pathToProcessedData,'/XSensURDF_subj-0%d_%dDoFsHands.urdf'), ...
+            bucket.subjectID, str2double(cell2mat(userAnswer(2))));
+    end
+    % template 66Dofs with the hands
+    if model66DoFs
+        % TODO
+    end
+end
+
 % Subject mass
-bucket.mass = str2double(cell2mat(userAnswer(3)));
+bucket.mass = str2double(cell2mat(userAnswer(4)));
+
+% Subject height
+bucket.height = str2double(cell2mat(userAnswer(5)));
 
 %% Create SUIT struct
 disp('==========================================================================');
@@ -79,12 +99,23 @@ end
 
 %% Extract subject parameters from SUIT struct
 subjectParamsFromData = subjectParamsComputation(suit, bucket.mass);
+if modelWithHands
+    subjectParamsFromData = subjectParamsComputation_Hands(subjectParamsFromData, bucket.height, bucket.mass);
+end
 
 %% Create URDF model
-bucket.URDFmodel = createXsensLikeURDFmodel(str2double(cell2mat(userAnswer(2))), ...
-    subjectParamsFromData, ...
-    suit.sensors, ...
-    'filename',bucket.filenameURDF, ...
-    'GazeboModel',false);
+if modelWithHands
+    bucket.URDFmodel = createXsensLikeURDFmodel_withHands(str2double(cell2mat(userAnswer(2))), ...
+        subjectParamsFromData, ...
+        suit.sensors, ...
+        'filename',bucket.filenameURDF, ...
+        'GazeboModel',true);
+else
+    bucket.URDFmodel = createXsensLikeURDFmodel(str2double(cell2mat(userAnswer(2))), ...
+        subjectParamsFromData, ...
+        suit.sensors, ...
+        'filename',bucket.filenameURDF, ...
+        'GazeboModel',true);
+end
 fprintf('[End] Computation of Subject_%02d URDF model\n',bucket.subjectID);
 disp('==========================================================================');
