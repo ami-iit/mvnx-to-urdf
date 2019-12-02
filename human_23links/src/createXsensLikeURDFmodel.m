@@ -2,6 +2,7 @@ function [urdfModelTemplate] = createXsensLikeURDFmodel(DoFs_number, subjectPara
 %CREATEXSENSLIKEURDFMODEL generates a URDF model of the subject.
 %
 % Inputs :
+% -  DoFs_number   : number of DoFs of the model;
 % -  subjectParams : anthropometric parameters coming from the previous
 %                    function;
 % -  sensors       :  sensors information coming from suit;
