@@ -6,7 +6,9 @@
 % - fill a user dialog box with
 %   1) the number of the subject (e.g., <1> if the raw data is 'Subj-01.mvnx');
 %   2) the number of DoFs of the URDF model (e.g., 48 or 66);
-%   3) the mass in Kg of the subject.
+%   3) option for hands/no hands model;
+%   4) the mass in [Kg] of the subject;
+%   5) the height in [m] of the subject.
 
 
 % Author: Claudia Latella, 2019
