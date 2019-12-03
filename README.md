@@ -1,5 +1,4 @@
-# human-URDF
-
+# human-model-generator
 The code in this repository allows to build URDF models of human subjects.
 
 ### Dependencies
