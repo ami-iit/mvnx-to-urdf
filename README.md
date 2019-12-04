@@ -1,7 +1,11 @@
-# human-model-generator
-The code in this repository allows to build URDF models of human subjects.
 
-
+##  Contents
+* **[Installation](#installation)**
+*   **[Prerequisites](#prerequisites)**
+*   **[Una-tantum procedure](#una-tantum-procedure)**
+* **[How to generate model](#how-to-generate-models)**
+*   **[What you need](#what-you-need)**
+*   **[How to use it](##how-to-use-it)**
 
 ## Installation
 
@@ -37,7 +41,7 @@ The code in this repository allows to build URDF models of human subjects.
 - A data folder (e.g., `data`) containing your own dataset, per each subject (e.g., `Subj-0X`) and each task (e.g., `TaskY`).  Per each task, two macro folders  structured as follows:
 - The folder `templates` containig human templates for URDF models.
 
-#### How to use
+#### How to use it
 - Run the script `computeHumanURDF.m` from `/human_23links/` folder
 - Fill the dialog box with required info
 
