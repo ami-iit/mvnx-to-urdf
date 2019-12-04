@@ -5,8 +5,7 @@ The code in this repository allows to build URDF models of human subjects.
 - [**iDynTree**](https://github.com/robotology/idyntree): a library of robots dynamics algorithms for control, estimation and simulation.
 
 ### Citing this work
-An example on how to use the human URDF model in the following paper:
-
+Please cite the following publication if you are using the code contained in this repository for your own research and/or experiments:
 ~~~
 Latella, C.; Traversaro, S.; Ferigo, D.; Tirupachuri, Y.; Rapetti, L.; 
 Andrade Chavez, F.J.; Nori, F.; Pucci, D. Simultaneous Floating-Base 
