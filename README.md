@@ -39,7 +39,7 @@
 
 #### What you need
 - A data folder (e.g., `data`) containing your own dataset, per each subject (e.g., `Subj-0X`).
-- The folder `templates` containig human templates for URDF models.
+- The folder [`templates`](https://github.com/dic-iit/human-model-generator/tree/master/templates) containig human templates for URDF models.
 
 #### How to use it
 - Run the script `computeHumanURDF.m` from `/human_23links/` folder.
