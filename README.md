@@ -31,18 +31,18 @@
       Matlab_ROOT_DIR             root-to-your-application-Matlab
   make install
   ```
-  - In your `.bashrc` add ```export Matlab_ROOT_DIR="root-to-your-application-Matlab"```
-  - Open Matlab and browse to the folder ```your-path/robotology-superbuild/build```
-  - Run the script `Startup-robotology-superbuild.m`
+  - In your `.bashrc` add ```export Matlab_ROOT_DIR="root-to-your-application-Matlab"```.
+  - Open Matlab and browse to the folder ```your-path/robotology-superbuild/build```.
+  - Run the script `Startup-robotology-superbuild.m`.
 
 ## How to generate models
 
 #### What you need
-- A data folder (e.g., `data`) containing your own dataset, per each subject (e.g., `Subj-0X`) and each task (e.g., `TaskY`).  Per each task, two macro folders  structured as follows:
+- A data folder (e.g., `data`) containing your own dataset, per each subject (e.g., `Subj-0X`).
 - The folder `templates` containig human templates for URDF models.
 
 #### How to use it
-- Run the script `computeHumanURDF.m` from `/human_23links/` folder
-- Fill the dialog box with required info
+- Run the script `computeHumanURDF.m` from `/human_23links/` folder.
+- Fill the dialog box with required info.
 
 
