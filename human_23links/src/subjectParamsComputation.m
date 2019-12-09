@@ -1,7 +1,7 @@
 function [subjectParams] = subjectParamsComputation(suit, M)
-% SUBJECTPARAMS computes sizes for bounding boxes by extracting dimensions
-% directly from suit data. The convention for the reference frame is that
-% one in Figure 60 of MVN user manual.
+% SUBJECTPARAMSCOMPUTATTION computes sizes for bounding boxes by extracting
+% dimensions directly from suit data. The convention for the reference
+% frame is that one in Figure 60 of MVN user manual.
 %
 % Important note1:
 % - for pelvis link (the base) the reference frame is located in the point
@@ -227,7 +227,7 @@ subjectParams.rightHandBox = [rightHand_x, rightHand_y, rightHand_z];
 % box origin
 subjectParams.rightHandBoxOrigin = 0.5 * [0, -rightHand_y, 0];%wrt jRightWrist
 % Mass and inertia
-subjectParams.rightHandMass     = 0.006 * M
+subjectParams.rightHandMass     = 0.006 * M;
 subjectParams.rightHandIxx      = (subjectParams.rightHandMass/12) * (rightHand_y^2 + rightHand_z^2);
 subjectParams.rightHandIyy      = (subjectParams.rightHandMass/12) * (rightHand_x^2 + rightHand_z^2);
 subjectParams.rightHandIzz      = (subjectParams.rightHandMass/12) * (rightHand_x^2 + rightHand_y^2);
