@@ -104,6 +104,7 @@ subjectParamsFromData = subjectParamsComputation(suit, bucket.mass);
 if modelWithHands
     subjectParamsFromData = subjectParamsComputation_Hands(subjectParamsFromData, bucket.height, bucket.mass);
 end
+save(fullfile(bucket.pathToProcessedData,'/subjectParamsFromData.mat'),'subjectParamsFromData');
 
 %% Create URDF model
 if modelWithHands
