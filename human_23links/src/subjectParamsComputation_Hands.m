@@ -10,10 +10,10 @@ totalHandMass = 0.006 * M; % from anthropometric assumption
 % box sizes
 rightPalm_x = 0.0482 * H; % HB,from anthropometric assumption
 rightPalm_y = 0.0657 * H; % PL,from anthropometric assumption
-rightPalm_z = subjectParams.rightForeArm_z; % model assumption
+rightPalm_z = subjectParams.rightForeArm_z/2; % model assumption
 right_finger_x = 1/4 * rightPalm_x; % model assumption
 % box sizes
-subjectParams.rightPalmBox = [rightPalm_x, rightPalm_y, rightPalm_z/2];
+subjectParams.rightPalmBox = [rightPalm_x, rightPalm_y, rightPalm_z];
 % box origin
 subjectParams.rightPalmBoxOrigin = 1/2 * [0, -rightPalm_y, 0]; % wrt jRightWrist
 % Mass and inertia
@@ -232,10 +232,10 @@ subjectParams.rightThumb3Izz  = (subjectParams.rightThumb3Mass/12) * (3 * (subje
 % box sizes
 leftPalm_x = 0.0482 * H; % HB,from anthropometric assumption
 leftPalm_y = 0.0657 * H; % PL,from anthropometric assumption
-leftPalm_z = subjectParams.leftForeArm_z; % model assumption
+leftPalm_z = subjectParams.leftForeArm_z/2; % model assumption
 left_finger_x = 1/4 * leftPalm_x; % model assumption
 % box sizes
-subjectParams.leftPalmBox = [leftPalm_x, leftPalm_y, leftPalm_z/2];
+subjectParams.leftPalmBox = [leftPalm_x, leftPalm_y, leftPalm_z];
 % box origin
 subjectParams.leftPalmBoxOrigin = 1/2 * [0, leftPalm_y, 0]; % wrt jLeftWrist
 % Mass and inertia
