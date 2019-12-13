@@ -186,16 +186,18 @@ subjectParams.rightIndex3Ixx  = (subjectParams.rightIndex3Mass/12) * (3 * (subje
 subjectParams.rightIndex3Iyy  = (subjectParams.rightIndex3Mass/2)  * ((subjectParams.rightIndex3_z/2)^2) ;
 subjectParams.rightIndex3Izz  = (subjectParams.rightIndex3Mass/12) * (3 * (subjectParams.rightIndex3_z/2)^2 + subjectParams.rightIndex3_y^2);
 %% RIGHT THUMB FINGER
-totalThumbLength = 0.0323 * H; % TFL,from anthropometric assumption
+% Important note: TFL is here only for the last 2 digits!
+thumbLength_2finalDigits = 0.0323 * H; % TFL,from anthropometric assumption
+thumbLength_firstDigit   = 1/2 * rightPalm_y; % from visual assumption
 totalThumbMass   = (13 * totalHandMass)/100; % 13% of the total hand mass, assumption!!!
 % RIGHT THUMB1
 % box sizes
-subjectParams.rightThumb1_y = 1/2 * totalThumbLength; % from anthropometric assumption
+subjectParams.rightThumb1_y = thumbLength_firstDigit; % from visual assumption
 subjectParams.rightThumb1_z = rightPalm_z; % model assumption
 % box origin
-subjectParams.jRightThumb1_rotyOrigin = [1/2 * rightPalm_x, -1/3 * rightPalm_y, 0]; % wrt jRightWrist
+subjectParams.jRightThumb1_rotyOrigin = [1/2 * rightPalm_x, -1/8 * rightPalm_y, 0]; % wrt jRightWrist
 subjectParams.rightThumb1BoxOrigin    = 1/2 * [0, -subjectParams.rightThumb1_y, 0]; % wrt jRightThumb1_roty
-% Mass and inertia %
+% Mass and inertia
 subjectParams.rightThumb1Mass = 1/3 * totalThumbMass;
 subjectParams.rightThumb1Ixx  = (subjectParams.rightThumb1Mass/12) * (3 * (subjectParams.rightThumb1_z/2)^2 + subjectParams.rightThumb1_y^2);
 subjectParams.rightThumb1Iyy  = (subjectParams.rightThumb1Mass/2)  * ((subjectParams.rightThumb1_z/2)^2) ;
@@ -203,7 +205,7 @@ subjectParams.rightThumb1Izz  = (subjectParams.rightThumb1Mass/12) * (3 * (subje
 % -----
 % RIGHT THUMB2
 % box sizes
-subjectParams.rightThumb2_y = 3/10 * totalThumbLength; % from anthropometric assumption
+subjectParams.rightThumb2_y = 2/3 * thumbLength_2finalDigits; % from anthropometric assumption
 subjectParams.rightThumb2_z = rightPalm_z; % model assumption
 % box origin
 subjectParams.jRightThumb2_rotxOrigin = [0, -subjectParams.rightThumb1_y, 0]; % wrt jRightThumb1_roty
@@ -216,7 +218,7 @@ subjectParams.rightThumb2Izz  = (subjectParams.rightThumb2Mass/12) * (3 * (subje
 % -----
 % RIGHT THUMB3
 % box sizes
-subjectParams.rightThumb3_y = 1/5 * totalThumbLength; % from anthropometric assumption
+subjectParams.rightThumb3_y = 1/3 * thumbLength_2finalDigits; % from anthropometric assumption
 subjectParams.rightThumb3_z = rightPalm_z; % model assumption
 % box origin
 subjectParams.jRightThumb3_rotxOrigin = [0, -subjectParams.rightThumb2_y, 0]; % wrt jRightThumb2_rotx
@@ -408,16 +410,18 @@ subjectParams.leftIndex3Ixx  = (subjectParams.leftIndex3Mass/12) * (3 * (subject
 subjectParams.leftIndex3Iyy  = (subjectParams.leftIndex3Mass/2)  * ((subjectParams.leftIndex3_z/2)^2) ;
 subjectParams.leftIndex3Izz  = (subjectParams.leftIndex3Mass/12) * (3 * (subjectParams.leftIndex3_z/2)^2 + subjectParams.leftIndex3_y^2);
 %% LEFT THUMB FINGER
-totalThumbLength = 0.0323 * H; % TFL,from anthropometric assumption
+% Important note: TFL is here only for the last 2 digits!
+thumbLength_2finalDigits = 0.0323 * H; % TFL,from anthropometric assumption
+thumbLength_firstDigit   = 1/2 * leftPalm_y; % from visual assumption
 totalThumbMass   = (13 * totalHandMass)/100; % 13% of the total hand mass, assumption!!!
 % LEFT THUMB1
 % box sizes
-subjectParams.leftThumb1_y = 1/2 * totalThumbLength; % from anthropometric assumption
+subjectParams.leftThumb1_y = thumbLength_firstDigit; % from visual assumption
 subjectParams.leftThumb1_z = leftPalm_z; % model assumption
 % box origin
-subjectParams.jLeftThumb1_rotyOrigin = [1/2 * leftPalm_x, 1/3 * leftPalm_y, 0]; % wrt jLeftWrist
+subjectParams.jLeftThumb1_rotyOrigin = [1/2 * leftPalm_x, 1/8 * leftPalm_y, 0]; % wrt jLeftWrist
 subjectParams.leftThumb1BoxOrigin    = 1/2 * [0, subjectParams.leftThumb1_y, 0]; % wrt jLeftThumb1_roty
-% Mass and inertia %
+% Mass and inertia
 subjectParams.leftThumb1Mass = 1/3 * totalThumbMass;
 subjectParams.leftThumb1Ixx  = (subjectParams.leftThumb1Mass/12) * (3 * (subjectParams.leftThumb1_z/2)^2 + subjectParams.leftThumb1_y^2);
 subjectParams.leftThumb1Iyy  = (subjectParams.leftThumb1Mass/2)  * ((subjectParams.leftThumb1_z/2)^2) ;
@@ -425,7 +429,7 @@ subjectParams.leftThumb1Izz  = (subjectParams.leftThumb1Mass/12) * (3 * (subject
 % -----
 % LEFT THUMB2
 % box sizes
-subjectParams.leftThumb2_y = 3/10 * totalThumbLength; % from anthropometric assumption
+subjectParams.leftThumb2_y = 2/3 * thumbLength_2finalDigits; % from anthropometric assumption
 subjectParams.leftThumb2_z = leftPalm_z; % model assumption
 % box origin
 subjectParams.jLeftThumb2_rotxOrigin = [0, subjectParams.leftThumb1_y, 0]; % wrt jLeftThumb1_roty
@@ -438,7 +442,7 @@ subjectParams.leftThumb2Izz  = (subjectParams.leftThumb2Mass/12) * (3 * (subject
 % -----
 % LEFT THUMB3
 % box sizes
-subjectParams.leftThumb3_y = 1/5 * totalThumbLength; % from anthropometric assumption
+subjectParams.leftThumb3_y = 1/3 * thumbLength_2finalDigits; % from anthropometric assumption
 subjectParams.leftThumb3_z = leftPalm_z; % model assumption
 % box origin
 subjectParams.jLeftThumb3_rotxOrigin = [0, subjectParams.leftThumb2_y, 0]; % wrt jLeftThumb2_rotx
@@ -448,4 +452,5 @@ subjectParams.leftThumb3Mass = 1/3 * totalThumbMass;
 subjectParams.leftThumb3Ixx  = (subjectParams.leftThumb3Mass/12) * (3 * (subjectParams.leftThumb3_z/2)^2 + subjectParams.leftThumb3_y^2);
 subjectParams.leftThumb3Iyy  = (subjectParams.leftThumb3Mass/2)  * ((subjectParams.leftThumb3_z/2)^2) ;
 subjectParams.leftThumb3Izz  = (subjectParams.leftThumb3Mass/12) * (3 * (subjectParams.leftThumb3_z/2)^2 + subjectParams.leftThumb3_y^2);
+
 end
