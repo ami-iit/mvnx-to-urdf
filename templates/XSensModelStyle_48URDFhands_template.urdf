@@ -687,6 +687,13 @@
         </collision>
 
     </link>
+	<link name="RightThumb2_f1">
+        <inertial>
+            <mass value="FAKEMASS"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="FAKEIN" iyy="FAKEIN" izz="FAKEIN" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+    </link>
 	<link name="RightThumb2">
         <inertial>
             <mass value="RIGHTTHUMB2MASS"/>
@@ -1191,6 +1198,13 @@
             </geometry>
         </collision>
 
+    </link>
+	<link name="LeftThumb2_f1">
+        <inertial>
+            <mass value="FAKEMASS"/>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="FAKEIN" iyy="FAKEIN" izz="FAKEIN" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
     </link>
 	<link name="LeftThumb2">
         <inertial>
@@ -1798,9 +1812,17 @@
         <limit effort="30" velocity="1.0" lower="-1.5708" upper="1.48353" />
         <axis xyz="0 1 0" />
     </joint>
+	<joint name="jRightThumb1_rotz" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="RightThumb1"/>
+        <child link="RightThumb2_f1"/>
+        <dynamics damping="0.1" friction="0.0"/>
+        <limit effort="30" velocity="1.0" lower="-1.5708" upper="1.48353" />
+        <axis xyz="0 0 1" />
+    </joint>
 	<joint name="jRightThumb2_rotx" type="revolute">
         <origin xyz="jRightThumb2_ORIGIN" rpy="0 0 0"/>
-        <parent link="RightThumb1"/>
+        <parent link="RightThumb2_f1"/>
         <child link="RightThumb2"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -1984,9 +2006,17 @@
 	    <limit effort="30" velocity="1.0" lower="-1.5708" upper="1.48353" />
 	    <axis xyz="0 1 0" />
 	</joint>
+	<joint name="jLeftThumb1_rotz" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="LeftThumb1"/>
+        <child link="LeftThumb2_f1"/>
+        <dynamics damping="0.1" friction="0.0"/>
+        <limit effort="30" velocity="1.0" lower="-1.5708" upper="1.48353" />
+        <axis xyz="0 0 1" />
+    </joint>
 	<joint name="jLeftThumb2_rotx" type="revolute">
 	    <origin xyz="jLeftThumb2_ORIGIN" rpy="0 0 0"/>
-	    <parent link="LeftThumb1"/>
+	    <parent link="LeftThumb2_f1"/>
 	    <child link="LeftThumb2"/>
 	    <dynamics damping="0.1" friction="0.0"/>
 	    <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
