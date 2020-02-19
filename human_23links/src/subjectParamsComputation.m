@@ -400,7 +400,7 @@ subjectParams.rightToeIzz       = (subjectParams.rightToeMass/12) * (rightToe_x^
 % box size
 [pLeftTro, ~] = pointsFromName(leftUpperLeg_struct.points, 'pLeftGreaterTrochanter');
 [pLeftKneeUL, ~] = pointsFromName(leftUpperLeg_struct.points, 'pLeftKneeMedEpicondyle');
-subjectParams.leftUpperLeg_x = pLeftKneeUL(2) - pLeftTro(2);
+subjectParams.leftUpperLeg_x = abs(pLeftKneeUL(2) - pLeftTro(2));
 subjectParams.leftUpperLeg_z = abs(subjectParams.jLeftKnee(3));
 % box origin
 subjectParams.leftUpperLegBoxOrigin = 0.5 * [0, 0, -subjectParams.leftUpperLeg_z];%wrt jLeftHip
