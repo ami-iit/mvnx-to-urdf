@@ -337,27 +337,52 @@
         </inertial>
     </link>
 	<!--RIGHT HAND-->
-	<link name="RightPalm">
+	<link name="RightPalmCloseToThumb">
         <inertial>
-            <mass value="RIGHTPALMMASS"/>
+            <mass value="RIGHTPALMCLOSETOTHUMBMASS"/>
 			<!--COM origin wrt jRightWrist-->
-            <origin xyz="RIGHTPALM_COM_ORIGIN" rpy="0 0 0" />
-            <inertia ixx="RIGHTPALMINERTIAIXX" iyy="RIGHTPALMINERTIAIYY" izz="RIGHTPALMINERTIAIZZ" ixy="0" ixz="0" iyz="0"/>
+            <origin xyz="RIGHTPALMCLOSETOTHUMB_COM_ORIGIN" rpy="0 0 0" />
+            <inertia ixx="RIGHTPALMCLOSETOTHUMBINERTIAIXX" iyy="RIGHTPALMCLOSETOTHUMBINERTIAIYY" izz="RIGHTPALMCLOSETOTHUMBINERTIAIZZ" ixy="0" ixz="0" iyz="0"/>
         </inertial>
 
         <visual>
 			<!--box origin wrt jRightWrist-->
-            <origin xyz="RIGHTPALM_BOX_ORIGIN" rpy="0 0 0" />
+            <origin xyz="RIGHTPALMCLOSETOTHUMB_BOX_ORIGIN" rpy="0 0 0" />
             <geometry>
-                <box size="RIGHTPALM_BOX_SIZE"/>
+                <box size="RIGHTPALMCLOSETOTHUMB_BOX_SIZE"/>
             </geometry>
         </visual>
 
         <collision>
 			<!--box origin wrt jRightWrist-->
-            <origin xyz="RIGHTPALM_BOX_ORIGIN" rpy="0 0 0" />
+            <origin xyz="RIGHTPALMCLOSETOTHUMB_BOX_ORIGIN" rpy="0 0 0" />
             <geometry>
-                <box size="RIGHTPALM_BOX_SIZE"/>
+                <box size="RIGHTPALMCLOSETOTHUMB_BOX_SIZE"/>
+            </geometry>
+        </collision>
+
+    </link>
+	<link name="RightPalmFarFromThumb">
+        <inertial>
+            <mass value="RIGHTPALMFARFROMTHUMBMASS"/>
+			<!--COM origin wrt jRightWrist-->
+            <origin xyz="RIGHTPALMFARFROMTHUMB_COM_ORIGIN" rpy="0 0 0" />
+            <inertia ixx="RIGHTPALMFARFROMTHUMBINERTIAIXX" iyy="RIGHTPALMFARFROMTHUMBINERTIAIYY" izz="RIGHTPALMFARFROMTHUMBINERTIAIZZ" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+
+        <visual>
+			<!--box origin wrt jRightWrist-->
+            <origin xyz="RIGHTPALMFARFROMTHUMB_BOX_ORIGIN" rpy="0 0 0" />
+            <geometry>
+                <box size="RIGHTPALMFARFROMTHUMB_BOX_SIZE"/>
+            </geometry>
+        </visual>
+
+        <collision>
+			<!--box origin wrt jRightWrist-->
+            <origin xyz="RIGHTPALMFARFROMTHUMB_BOX_ORIGIN" rpy="0 0 0" />
+            <geometry>
+                <box size="RIGHTPALMFARFROMTHUMB_BOX_SIZE"/>
             </geometry>
         </collision>
 
@@ -877,27 +902,52 @@
         </inertial>
     </link>
 	<!--LEFT HAND-->
-	<link name="LeftPalm">
+	<link name="LeftPalmCloseToThumb">
         <inertial>
-            <mass value="LEFTPALMMASS"/>
+            <mass value="LEFTPALMCLOSETOTHUMBMASS"/>
 			<!--COM origin wrt jLeftWrist-->
-            <origin xyz="LEFTPALM_COM_ORIGIN" rpy="0 0 0" />
-            <inertia ixx="LEFTPALMINERTIAIXX" iyy="LEFTPALMINERTIAIYY" izz="LEFTPALMINERTIAIZZ" ixy="0" ixz="0" iyz="0"/>
+            <origin xyz="LEFTPALMCLOSETOTHUMB_COM_ORIGIN" rpy="0 0 0" />
+            <inertia ixx="LEFTPALMCLOSETOTHUMBINERTIAIXX" iyy="LEFTPALMCLOSETOTHUMBINERTIAIYY" izz="LEFTPALMCLOSETOTHUMBINERTIAIZZ" ixy="0" ixz="0" iyz="0"/>
         </inertial>
 
         <visual>
 			<!--box origin wrt jLeftWrist-->
-            <origin xyz="LEFTPALM_BOX_ORIGIN" rpy="0 0 0" />
+            <origin xyz="LEFTPALMCLOSETOTHUMB_BOX_ORIGIN" rpy="0 0 0" />
             <geometry>
-                <box size="LEFTPALM_BOX_SIZE"/>
+                <box size="LEFTPALMCLOSETOTHUMB_BOX_SIZE"/>
             </geometry>
         </visual>
 
         <collision>
 			<!--box origin wrt jLeftWrist-->
-            <origin xyz="LEFTPALM_BOX_ORIGIN" rpy="0 0 0" />
+            <origin xyz="LEFTPALMCLOSETOTHUMB_BOX_ORIGIN" rpy="0 0 0" />
             <geometry>
-                <box size="LEFTPALM_BOX_SIZE"/>
+                <box size="LEFTPALMCLOSETOTHUMB_BOX_SIZE"/>
+            </geometry>
+        </collision>
+
+    </link>
+	<link name="LeftPalmFarFromThumb">
+        <inertial>
+            <mass value="LEFTPALMFARFROMTHUMBMASS"/>
+			<!--COM origin wrt jLeftWrist-->
+            <origin xyz="LEFTPALMFARFROMTHUMB_COM_ORIGIN" rpy="0 0 0" />
+            <inertia ixx="LEFTPALMFARFROMTHUMBINERTIAIXX" iyy="LEFTPALMFARFROMTHUMBINERTIAIYY" izz="LEFTPALMFARFROMTHUMBINERTIAIZZ" ixy="0" ixz="0" iyz="0"/>
+        </inertial>
+
+        <visual>
+			<!--box origin wrt jLeftWrist-->
+            <origin xyz="LEFTPALMFARFROMTHUMB_BOX_ORIGIN" rpy="0 0 0" />
+            <geometry>
+                <box size="LEFTPALMFARFROMTHUMB_BOX_SIZE"/>
+            </geometry>
+        </visual>
+
+        <collision>
+			<!--box origin wrt jLeftWrist-->
+            <origin xyz="LEFTPALMFARFROMTHUMB_BOX_ORIGIN" rpy="0 0 0" />
+            <geometry>
+                <box size="LEFTPALMFARFROMTHUMB_BOX_SIZE"/>
             </geometry>
         </collision>
 
@@ -1758,15 +1808,23 @@
 	<joint name="jRightWrist_rotz" type="revolute">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <parent link="RightWrist_f1"/>
-        <child link="RightPalm"/>
+        <child link="RightPalmCloseToThumb"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-0.523599" upper="0.349066" />
         <axis xyz="0 0 1" />
     </joint>
 	<!--RIGHT HAND-->
+	<joint name="jRightPalm_roty" type="revolute">
+        <origin xyz="jRightPalm_ORIGIN" rpy="0 0 0"/>
+        <parent link="RightPalmCloseToThumb"/>
+        <child link="RightPalmFarFromThumb"/>
+        <dynamics damping="0.1" friction="0.0"/>
+        <limit effort="30" velocity="1.0" lower="-10" upper="10" />
+        <axis xyz="0 1 0" />
+    </joint>
 	<joint name="jRightPinky1_rotx" type="revolute">
         <origin xyz="jRightPinky1_ORIGIN" rpy="0 0 0"/>
-        <parent link="RightPalm"/>
+        <parent link="RightPalmFarFromThumb"/>
         <child link="RightPinky1"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -1798,7 +1856,7 @@
     </joint>
 	<joint name="jRightRing1_rotx" type="revolute">
         <origin xyz="jRightRing1_ORIGIN" rpy="0 0 0"/>
-        <parent link="RightPalm"/>
+        <parent link="RightPalmFarFromThumb"/>
         <child link="RightRing1"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -1830,7 +1888,7 @@
     </joint>
 	<joint name="jRightMiddle1_rotx" type="revolute">
         <origin xyz="jRightMiddle1_ORIGIN" rpy="0 0 0"/>
-        <parent link="RightPalm"/>
+        <parent link="RightPalmCloseToThumb"/>
         <child link="RightMiddle1"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -1862,7 +1920,7 @@
     </joint>
 	<joint name="jRightIndex1_rotx" type="revolute">
         <origin xyz="jRightIndex1_ORIGIN" rpy="0 0 0"/>
-        <parent link="RightPalm"/>
+        <parent link="RightPalmCloseToThumb"/>
         <child link="RightIndex1"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -1894,7 +1952,7 @@
     </joint>
 	<joint name="jRightThumb1_roty" type="revolute">
         <origin xyz="jRightThumb1_ORIGIN" rpy="0 0 0"/>
-        <parent link="RightPalm"/>
+        <parent link="RightPalmCloseToThumb"/>
         <child link="RightThumb1"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-1.5708" upper="1.48353" />
@@ -1984,15 +2042,23 @@
 	<joint name="jLeftWrist_rotz" type="revolute">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <parent link="LeftWrist_f1"/>
-        <child link="LeftPalm"/>
+        <child link="LeftPalmCloseToThumb"/>
         <dynamics damping="0.1" friction="0.0"/>
         <limit effort="30" velocity="1.0" lower="-0.349066" upper="0.523599" />
         <axis xyz="0 0 1" />
     </joint>
 	<!--LEFT HAND-->
+	<joint name="jLeftPalm_roty" type="revolute">
+        <origin xyz="jLeftPalm_ORIGIN" rpy="0 0 0"/>
+        <parent link="LeftPalmCloseToThumb"/>
+        <child link="LeftPalmFarFromThumb"/>
+        <dynamics damping="0.1" friction="0.0"/>
+        <limit effort="30" velocity="1.0" lower="-10" upper="10" />
+        <axis xyz="0 1 0" />
+    </joint>
 	<joint name="jLeftPinky1_rotx" type="revolute">
 	    <origin xyz="jLeftPinky1_ORIGIN" rpy="0 0 0"/>
-	    <parent link="LeftPalm"/>
+	    <parent link="LeftPalmFarFromThumb"/>
 	    <child link="LeftPinky1"/>
 	    <dynamics damping="0.1" friction="0.0"/>
 	    <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -2024,7 +2090,7 @@
 	</joint>
 	<joint name="jLeftRing1_rotx" type="revolute">
 	    <origin xyz="jLeftRing1_ORIGIN" rpy="0 0 0"/>
-	    <parent link="LeftPalm"/>
+	    <parent link="LeftPalmFarFromThumb"/>
 	    <child link="LeftRing1"/>
 	    <dynamics damping="0.1" friction="0.0"/>
 	    <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -2056,7 +2122,7 @@
 	</joint>
 	<joint name="jLeftMiddle1_rotx" type="revolute">
 	    <origin xyz="jLeftMiddle1_ORIGIN" rpy="0 0 0"/>
-	    <parent link="LeftPalm"/>
+	    <parent link="LeftPalmCloseToThumb"/>
 	    <child link="LeftMiddle1"/>
 	    <dynamics damping="0.1" friction="0.0"/>
 	    <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -2088,7 +2154,7 @@
 	</joint>
 	<joint name="jLeftIndex1_rotx" type="revolute">
 	    <origin xyz="jLeftIndex1_ORIGIN" rpy="0 0 0"/>
-	    <parent link="LeftPalm"/>
+	    <parent link="LeftPalmCloseToThumb"/>
 	    <child link="LeftIndex1"/>
 	    <dynamics damping="0.1" friction="0.0"/>
 	    <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
@@ -2120,7 +2186,7 @@
 	</joint>
 	<joint name="jLeftThumb1_roty" type="revolute">
 	    <origin xyz="jLeftThumb1_ORIGIN" rpy="0 0 0"/>
-	    <parent link="LeftPalm"/>
+	    <parent link="LeftPalmCloseToThumb"/>
 	    <child link="LeftThumb1"/>
 	    <dynamics damping="0.1" friction="0.0"/>
 	    <limit effort="30" velocity="1.0" lower="-1.5708" upper="1.48353" />

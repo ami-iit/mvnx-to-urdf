@@ -162,15 +162,22 @@ urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTFOREARMINERTIAIZZ',num2str(su
 urdfModelTemplate = strrep(urdfModelTemplate,'jRightElbow_ORIGIN',num2str(subjectParams.jRightT4Shoulder'));
 urdfModelTemplate = strrep(urdfModelTemplate,'jRightWrist_ORIGIN',num2str(subjectParams.jRightWrist'));
 %% RIGHT HAND (solid: boxes and cylinders)
-% -----
 % RIGHT PALM
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALM_BOX_ORIGIN',num2str(subjectParams.rightPalmBoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALM_COM_ORIGIN',num2str(subjectParams.rightPalmBoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALM_BOX_SIZE',num2str(subjectParams.rightPalmBox));
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMMASS',num2str(subjectParams.rightPalmMass));
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMINERTIAIXX',num2str(subjectParams.rightPalmIxx));
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMINERTIAIYY',num2str(subjectParams.rightPalmIyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMINERTIAIZZ',num2str(subjectParams.rightPalmIzz));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMB_BOX_ORIGIN',num2str(subjectParams.rightPalmCloseToThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMB_BOX_ORIGIN',num2str(subjectParams.rightPalmFarFromThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMB_COM_ORIGIN',num2str(subjectParams.rightPalmCloseToThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMB_COM_ORIGIN',num2str(subjectParams.rightPalmFarFromThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMB_BOX_SIZE',num2str(subjectParams.rightPalmCloseToThumbBox));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMB_BOX_SIZE',num2str(subjectParams.rightPalmFarFromThumbBox));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMBMASS',num2str(subjectParams.rightPalmCloseToThumbMass));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMBMASS',num2str(subjectParams.rightPalmFarFromThumbMass));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMBINERTIAIXX',num2str(subjectParams.rightPalmCloseToThumbIxx));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMBINERTIAIXX',num2str(subjectParams.rightPalmFarFromThumbIxx));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMBINERTIAIYY',num2str(subjectParams.rightPalmCloseToThumbIyy));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMBINERTIAIYY',num2str(subjectParams.rightPalmFarFromThumbIyy));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMCLOSETOTHUMBINERTIAIZZ',num2str(subjectParams.rightPalmCloseToThumbIzz));
+urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPALMFARFROMTHUMBINERTIAIZZ',num2str(subjectParams.rightPalmFarFromThumbIzz));
+urdfModelTemplate = strrep(urdfModelTemplate,'jRightPalm_ORIGIN',num2str(subjectParams.jRightPalm_rotyOrigin));
 % -----
 % RIGHT PINKY
 urdfModelTemplate = strrep(urdfModelTemplate,'RIGHTPINKY1_BOX_ORIGIN',num2str(subjectParams.rightPinky1BoxOrigin));
@@ -348,15 +355,22 @@ urdfModelTemplate = strrep(urdfModelTemplate,'LEFTFOREARMINERTIAIYY',num2str(sub
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTFOREARMINERTIAIZZ',num2str(subjectParams.leftForeArmIzz));
 urdfModelTemplate = strrep(urdfModelTemplate,'jLeftWrist_ORIGIN',num2str(subjectParams.jLeftWrist'));
 %% LEFT HAND (solid: boxes and cylinders)
-% -----
 % LEFT PALM
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALM_BOX_ORIGIN',num2str(subjectParams.leftPalmBoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALM_COM_ORIGIN',num2str(subjectParams.leftPalmBoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALM_BOX_SIZE',num2str(subjectParams.leftPalmBox));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMMASS',num2str(subjectParams.leftPalmMass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMINERTIAIXX',num2str(subjectParams.leftPalmIxx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMINERTIAIYY',num2str(subjectParams.leftPalmIyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMINERTIAIZZ',num2str(subjectParams.leftPalmIzz));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMB_BOX_ORIGIN',num2str(subjectParams.leftPalmCloseToThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMB_BOX_ORIGIN',num2str(subjectParams.leftPalmFarFromThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMB_COM_ORIGIN',num2str(subjectParams.leftPalmCloseToThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMB_COM_ORIGIN',num2str(subjectParams.leftPalmFarFromThumbBoxOrigin));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMB_BOX_SIZE',num2str(subjectParams.leftPalmCloseToThumbBox));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMB_BOX_SIZE',num2str(subjectParams.leftPalmFarFromThumbBox));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMBMASS',num2str(subjectParams.leftPalmCloseToThumbMass));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMBMASS',num2str(subjectParams.leftPalmFarFromThumbMass));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMBINERTIAIXX',num2str(subjectParams.leftPalmCloseToThumbIxx));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMBINERTIAIXX',num2str(subjectParams.leftPalmFarFromThumbIxx));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMBINERTIAIYY',num2str(subjectParams.leftPalmCloseToThumbIyy));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMBINERTIAIYY',num2str(subjectParams.leftPalmFarFromThumbIyy));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMCLOSETOTHUMBINERTIAIZZ',num2str(subjectParams.leftPalmCloseToThumbIzz));
+urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMFARFROMTHUMBINERTIAIZZ',num2str(subjectParams.leftPalmFarFromThumbIzz));
+urdfModelTemplate = strrep(urdfModelTemplate,'jLeftPalm_ORIGIN',num2str(subjectParams.jLeftPalm_rotyOrigin));
 % -----
 % LEFT PINKY
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1_BOX_ORIGIN',num2str(subjectParams.leftPinky1BoxOrigin));
@@ -487,161 +501,6 @@ urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3HEIGHT',num2str(subjectP
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1RADIUS',num2str(subjectParams.leftThumb1_z/2));
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2RADIUS',num2str(subjectParams.leftThumb2_z/2));
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3RADIUS',num2str(subjectParams.leftThumb3_z/2));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1MASS',num2str(subjectParams.leftThumb1Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2MASS',num2str(subjectParams.leftThumb2Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3MASS',num2str(subjectParams.leftThumb3Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1INERTIAIXX',num2str(subjectParams.leftThumb1Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2INERTIAIXX',num2str(subjectParams.leftThumb2Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3INERTIAIXX',num2str(subjectParams.leftThumb3Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1INERTIAIYY',num2str(subjectParams.leftThumb1Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2INERTIAIYY',num2str(subjectParams.leftThumb2Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3INERTIAIYY',num2str(subjectParams.leftThumb3Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1INERTIAIZZ',num2str(subjectParams.leftThumb1Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2INERTIAIZZ',num2str(subjectParams.leftThumb2Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3INERTIAIZZ',num2str(subjectParams.leftThumb3Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftThumb1_ORIGIN',num2str(subjectParams.jLeftThumb1_rotyOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftThumb2_ORIGIN',num2str(subjectParams.jLeftThumb2_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftThumb3_ORIGIN',num2str(subjectParams.jLeftThumb3_rotxOrigin));
-%% LEFT HAND (solid: boxes and cylinders)
-% -----
-% LEFT PALM
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALM_BOX_ORIGIN',num2str(subjectParams.leftPalmBoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALM_COM_ORIGIN',num2str(subjectParams.leftPalmBoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALM_BOX_SIZE',num2str(subjectParams.leftPalmBox));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMMASS',num2str(subjectParams.leftPalmMass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMINERTIAIXX',num2str(subjectParams.leftPalmIxx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMINERTIAIYY',num2str(subjectParams.leftPalmIyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPALMINERTIAIZZ',num2str(subjectParams.leftPalmIzz));
-% -----
-% LEFT PINKY
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1_BOX_ORIGIN',num2str(subjectParams.leftPinky1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2_BOX_ORIGIN',num2str(subjectParams.leftPinky2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3_BOX_ORIGIN',num2str(subjectParams.leftPinky3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1_COM_ORIGIN',num2str(subjectParams.leftPinky1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2_COM_ORIGIN',num2str(subjectParams.leftPinky2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3_COM_ORIGIN',num2str(subjectParams.leftPinky3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1HEIGHT',num2str(subjectParams.leftPinky1_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2HEIGHT',num2str(subjectParams.leftPinky2_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3HEIGHT',num2str(subjectParams.leftPinky3_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1RADIUS',num2str(subjectParams.leftPinky1_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2RADIUS',num2str(subjectParams.leftPinky2_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3RADIUS',num2str(subjectParams.leftPinky3_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1MASS',num2str(subjectParams.leftPinky1Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2MASS',num2str(subjectParams.leftPinky2Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3MASS',num2str(subjectParams.leftPinky3Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1INERTIAIXX',num2str(subjectParams.leftPinky1Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2INERTIAIXX',num2str(subjectParams.leftPinky2Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3INERTIAIXX',num2str(subjectParams.leftPinky3Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1INERTIAIYY',num2str(subjectParams.leftPinky1Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2INERTIAIYY',num2str(subjectParams.leftPinky2Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3INERTIAIYY',num2str(subjectParams.leftPinky3Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY1INERTIAIZZ',num2str(subjectParams.leftPinky1Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY2INERTIAIZZ',num2str(subjectParams.leftPinky2Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTPINKY3INERTIAIZZ',num2str(subjectParams.leftPinky3Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftPinky1_ORIGIN',num2str(subjectParams.jLeftPinky1_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftPinky2_ORIGIN',num2str(subjectParams.jLeftPinky2_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftPinky3_ORIGIN',num2str(subjectParams.jLeftPinky3_rotxOrigin));
-% -----
-% LEFT RING FINGER
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1_BOX_ORIGIN',num2str(subjectParams.leftRing1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2_BOX_ORIGIN',num2str(subjectParams.leftRing2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3_BOX_ORIGIN',num2str(subjectParams.leftRing3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1_COM_ORIGIN',num2str(subjectParams.leftRing1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2_COM_ORIGIN',num2str(subjectParams.leftRing2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3_COM_ORIGIN',num2str(subjectParams.leftRing3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1HEIGHT',num2str(subjectParams.leftRing1_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2HEIGHT',num2str(subjectParams.leftRing2_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3HEIGHT',num2str(subjectParams.leftRing3_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1RADIUS',num2str(subjectParams.leftRing1_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2RADIUS',num2str(subjectParams.leftRing2_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3RADIUS',num2str(subjectParams.leftRing3_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1MASS',num2str(subjectParams.leftRing1Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2MASS',num2str(subjectParams.leftRing2Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3MASS',num2str(subjectParams.leftRing3Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1INERTIAIXX',num2str(subjectParams.leftRing1Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2INERTIAIXX',num2str(subjectParams.leftRing2Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3INERTIAIXX',num2str(subjectParams.leftRing3Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1INERTIAIYY',num2str(subjectParams.leftRing1Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2INERTIAIYY',num2str(subjectParams.leftRing2Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3INERTIAIYY',num2str(subjectParams.leftRing3Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING1INERTIAIZZ',num2str(subjectParams.leftRing1Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING2INERTIAIZZ',num2str(subjectParams.leftRing2Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTRING3INERTIAIZZ',num2str(subjectParams.leftRing3Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftRing1_ORIGIN',num2str(subjectParams.jLeftRing1_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftRing2_ORIGIN',num2str(subjectParams.jLeftRing2_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftRing3_ORIGIN',num2str(subjectParams.jLeftRing3_rotxOrigin));
-% -----
-% LEFT MIDDLE FINGER
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1_BOX_ORIGIN',num2str(subjectParams.leftMiddle1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2_BOX_ORIGIN',num2str(subjectParams.leftMiddle2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3_BOX_ORIGIN',num2str(subjectParams.leftMiddle3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1_COM_ORIGIN',num2str(subjectParams.leftMiddle1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2_COM_ORIGIN',num2str(subjectParams.leftMiddle2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3_COM_ORIGIN',num2str(subjectParams.leftMiddle3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1HEIGHT',num2str(subjectParams.leftMiddle1_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2HEIGHT',num2str(subjectParams.leftMiddle2_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3HEIGHT',num2str(subjectParams.leftMiddle3_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1RADIUS',num2str(subjectParams.leftMiddle1_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2RADIUS',num2str(subjectParams.leftMiddle2_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3RADIUS',num2str(subjectParams.leftMiddle3_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1MASS',num2str(subjectParams.leftMiddle1Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2MASS',num2str(subjectParams.leftMiddle2Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3MASS',num2str(subjectParams.leftMiddle3Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1INERTIAIXX',num2str(subjectParams.leftMiddle1Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2INERTIAIXX',num2str(subjectParams.leftMiddle2Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3INERTIAIXX',num2str(subjectParams.leftMiddle3Ixx));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1INERTIAIYY',num2str(subjectParams.leftMiddle1Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2INERTIAIYY',num2str(subjectParams.leftMiddle2Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3INERTIAIYY',num2str(subjectParams.leftMiddle3Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE1INERTIAIZZ',num2str(subjectParams.leftMiddle1Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE2INERTIAIZZ',num2str(subjectParams.leftMiddle2Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTMIDDLE3INERTIAIZZ',num2str(subjectParams.leftMiddle3Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftMiddle1_ORIGIN',num2str(subjectParams.jLeftMiddle1_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftMiddle2_ORIGIN',num2str(subjectParams.jLeftMiddle2_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftMiddle3_ORIGIN',num2str(subjectParams.jLeftMiddle3_rotxOrigin));
-% -----
-% LEFT INDEX FINGER
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1_BOX_ORIGIN',num2str(subjectParams.leftIndex1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2_BOX_ORIGIN',num2str(subjectParams.leftIndex2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3_BOX_ORIGIN',num2str(subjectParams.leftIndex3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1_COM_ORIGIN',num2str(subjectParams.leftIndex1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2_COM_ORIGIN',num2str(subjectParams.leftIndex2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3_COM_ORIGIN',num2str(subjectParams.leftIndex3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1HEIGHT',num2str(subjectParams.leftIndex1_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2HEIGHT',num2str(subjectParams.leftIndex2_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3HEIGHT',num2str(subjectParams.leftIndex3_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1RADIUS',num2str(subjectParams.leftIndex1_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2RADIUS',num2str(subjectParams.leftIndex2_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3RADIUS',num2str(subjectParams.leftIndex3_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1MASS',num2str(subjectParams.leftIndex1Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2MASS',num2str(subjectParams.leftIndex2Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3MASS',num2str(subjectParams.leftIndex3Mass));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1INERTIAIXX',num2str(subjectParams.leftIndex1Ixx ));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2INERTIAIXX',num2str(subjectParams.leftIndex2Ixx ));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3INERTIAIXX',num2str(subjectParams.leftIndex3Ixx ));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1INERTIAIYY',num2str(subjectParams.leftIndex1Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2INERTIAIYY',num2str(subjectParams.leftIndex2Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3INERTIAIYY',num2str(subjectParams.leftIndex3Iyy));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX1INERTIAIZZ',num2str(subjectParams.leftIndex1Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX2INERTIAIZZ',num2str(subjectParams.leftIndex2Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTINDEX3INERTIAIZZ',num2str(subjectParams.leftIndex3Izz));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftIndex1_ORIGIN',num2str(subjectParams.jLeftIndex1_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftIndex2_ORIGIN',num2str(subjectParams.jLeftIndex2_rotxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'jLeftIndex3_ORIGIN',num2str(subjectParams.jLeftIndex3_rotxOrigin));
-% -----
-% LEFT THUMB FINGER
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1_BOX_ORIGIN',num2str(subjectParams.leftThumb1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2_BOX_ORIGIN',num2str(subjectParams.leftThumb2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3_BOX_ORIGIN',num2str(subjectParams.leftThumb3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1_COM_ORIGIN',num2str(subjectParams.leftThumb1BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2_COM_ORIGIN',num2str(subjectParams.leftThumb2BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3_COM_ORIGIN',num2str(subjectParams.leftThumb3BoxOrigin));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1HEIGHT',num2str(subjectParams.leftThumb1_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2HEIGHT',num2str(subjectParams.leftThumb2_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3HEIGHT',num2str(subjectParams.leftThumb3_y));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1RADIUS',num2str(subjectParams.leftThumb1_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2RADIUS',num2str(subjectParams.leftThumb2_z/4));
-urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3RADIUS',num2str(subjectParams.leftThumb3_z/4));
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB1MASS',num2str(subjectParams.leftThumb1Mass));
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB2MASS',num2str(subjectParams.leftThumb2Mass));
 urdfModelTemplate = strrep(urdfModelTemplate,'LEFTTHUMB3MASS',num2str(subjectParams.leftThumb3Mass));

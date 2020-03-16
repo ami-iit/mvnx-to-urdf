@@ -7,20 +7,33 @@ totalHandMass = 0.006 * M; % from anthropometric assumption
 
 %% --RIGHT HAND
 %% RIGHT PALM
-% box sizes
+% box sizes for the entire palm considered as a whole parallelepiped
 rightPalm_x = 0.0482 * H; % HB,from anthropometric assumption
 rightPalm_y = 0.0657 * H; % PL,from anthropometric assumption
 rightPalm_z = subjectParams.rightForeArm_z/2; % model assumption
 right_finger_x = 1/4 * rightPalm_x; % model assumption
+% RIGHT PALM CLOSE TO THE THUMB (half of the right palm)
 % box sizes
-subjectParams.rightPalmBox = [rightPalm_x, rightPalm_y, rightPalm_z];
+subjectParams.rightPalmCloseToThumbBox = [rightPalm_x/2, rightPalm_y, rightPalm_z];
 % box origin
-subjectParams.rightPalmBoxOrigin = 1/2 * [0, -rightPalm_y, 0]; % wrt jRightWrist
+subjectParams.jRightPalm_rotyOrigin = [0, -1/2 * rightPalm_y, 0]; % wrt jRightWrist
+subjectParams.rightPalmCloseToThumbBoxOrigin = [1/4 * rightPalm_x, -1/2 * rightPalm_y, 0]; % wrt jRightWrist
 % Mass and inertia
-subjectParams.rightPalmMass = (50 * totalHandMass)/100; % 50% of the total hand mass, assumption!!!
-subjectParams.rightPalmIxx  = (subjectParams.rightPalmMass/12) * (rightPalm_y^2 + rightPalm_z^2);
-subjectParams.rightPalmIyy  = (subjectParams.rightPalmMass/12) * (rightPalm_x^2 + rightPalm_z^2);
-subjectParams.rightPalmIzz  = (subjectParams.rightPalmMass/12) * (rightPalm_x^2 + rightPalm_y^2);
+subjectParams.rightPalmCloseToThumbMass = (25 * totalHandMass)/100; % 25% of the total hand mass, assumption!!!
+subjectParams.rightPalmCloseToThumbIxx  = (subjectParams.rightPalmCloseToThumbMass/12) * (rightPalm_y^2 + rightPalm_z^2);
+subjectParams.rightPalmCloseToThumbIyy  = (subjectParams.rightPalmCloseToThumbMass/12) * ((rightPalm_x/2)^2 + rightPalm_z^2);
+subjectParams.rightPalmCloseToThumbIzz  = (subjectParams.rightPalmCloseToThumbMass/12) * ((rightPalm_x/2)^2 + rightPalm_y^2);
+% -----
+% RIGHT PALM FAR FROM THE THUMB (half of the right palm)
+% box sizes
+subjectParams.rightPalmFarFromThumbBox = [rightPalm_x/2, rightPalm_y, rightPalm_z];
+% box origin
+subjectParams.rightPalmFarFromThumbBoxOrigin = [-1/4 * rightPalm_x, 0, 0]; % jRightPalm_roty
+% Mass and inertia
+subjectParams.rightPalmFarFromThumbMass = (25 * totalHandMass)/100; % 25% of the total hand mass, assumption!!!
+subjectParams.rightPalmFarFromThumbIxx  = (subjectParams.rightPalmFarFromThumbMass/12) * (rightPalm_y^2 + rightPalm_z^2);
+subjectParams.rightPalmFarFromThumbIyy  = (subjectParams.rightPalmFarFromThumbMass/12) * ((rightPalm_x/2)^2 + rightPalm_z^2);
+subjectParams.rightPalmFarFromThumbIzz  = (subjectParams.rightPalmFarFromThumbMass/12) * ((rightPalm_x/2)^2 + rightPalm_y^2);
 %% RIGHT PINKY
 totalPinkyLength = 0.0356 * H; % LFL,from anthropometric assumption
 totalPinkyMass   = (7 * totalHandMass)/100; % 7% of the total hand mass, assumption!!!
@@ -29,7 +42,7 @@ totalPinkyMass   = (7 * totalHandMass)/100; % 7% of the total hand mass, assumpt
 subjectParams.rightPinky1_y = 1/2 * totalPinkyLength; % from anthropometric assumption
 subjectParams.rightPinky1_z = rightPalm_z; % model assumption
 % box origin
-subjectParams.jRightPinky1_rotxOrigin = [-3/8 * rightPalm_x, -rightPalm_y, 0]; % wrt jRightWrist
+subjectParams.jRightPinky1_rotxOrigin = [-3/8 * rightPalm_x, -1/2 * rightPalm_y, 0]; % wrt jRightPalm_roty
 subjectParams.rightPinky1BoxOrigin    = 1/2 * [0, -subjectParams.rightPinky1_y, 0]; % wrt jRightPinky1_rotx
 % Mass and inertia
 subjectParams.rightPinky1Mass = 1/3 * totalPinkyMass;
@@ -70,7 +83,8 @@ totalRingMass   = (10 * totalHandMass)/100; % 10% of the total hand mass, assump
 subjectParams.rightRing1_y = 1/2 * totalRingLength; % from anthropometric assumption
 subjectParams.rightRing1_z = rightPalm_z; % model assumption
 % box origin
-subjectParams.jRightRing1_rotxOrigin = [-1/8 * rightPalm_x, -rightPalm_y, 0]; % wrt jRightWrist
+subjectParams.jRightRing1_rotxOrigin = [-1/8 * rightPalm_x, -1/2 * rightPalm_y, 0]; % wrt jRightPalm_roty
+% subjectParams.jRightRing1_rotxOrigin = [-1/8 * rightPalm_x, -rightPalm_y, 0]; % wrt jRightWrist
 subjectParams.rightRing1BoxOrigin    = 1/2 * [0, -subjectParams.rightRing1_y, 0]; % wrt jRightRing1_rotx
 % Mass and inertia
 subjectParams.rightRing1Mass = 1/3 * totalRingMass;
@@ -231,20 +245,33 @@ subjectParams.rightThumb3Izz  = (subjectParams.rightThumb3Mass/12) * (3 * (subje
 
 %% --LEFT HAND
 %% LEFT PALM
-% box sizes
+% box sizes for the entire palm considered as a whole parallelepiped
 leftPalm_x = 0.0482 * H; % HB,from anthropometric assumption
 leftPalm_y = 0.0657 * H; % PL,from anthropometric assumption
 leftPalm_z = subjectParams.leftForeArm_z/2; % model assumption
 left_finger_x = 1/4 * leftPalm_x; % model assumption
+% LEFT PALM CLOSE TO THE THUMB (half of the left palm)
 % box sizes
-subjectParams.leftPalmBox = [leftPalm_x, leftPalm_y, leftPalm_z];
+subjectParams.leftPalmCloseToThumbBox = [leftPalm_x/2, leftPalm_y, leftPalm_z];
 % box origin
-subjectParams.leftPalmBoxOrigin = 1/2 * [0, leftPalm_y, 0]; % wrt jLeftWrist
+subjectParams.jLeftPalm_rotyOrigin = [0, 1/2 * leftPalm_y, 0]; % wrt jLeftWrist
+subjectParams.leftPalmCloseToThumbBoxOrigin = [1/4 * leftPalm_x, 1/2 * leftPalm_y, 0]; % wrt jLeftWrist
 % Mass and inertia
-subjectParams.leftPalmMass = (50 * totalHandMass)/100; % 50% of the total hand mass, assumption!!!
-subjectParams.leftPalmIxx  = (subjectParams.leftPalmMass/12) * (leftPalm_y^2 + leftPalm_z^2);
-subjectParams.leftPalmIyy  = (subjectParams.leftPalmMass/12) * (leftPalm_x^2 + leftPalm_z^2);
-subjectParams.leftPalmIzz  = (subjectParams.leftPalmMass/12) * (leftPalm_x^2 + leftPalm_y^2);
+subjectParams.leftPalmCloseToThumbMass = (25 * totalHandMass)/100; % 25% of the total hand mass, assumption!!!
+subjectParams.leftPalmCloseToThumbIxx  = (subjectParams.leftPalmCloseToThumbMass/12) * (leftPalm_y^2 + leftPalm_z^2);
+subjectParams.leftPalmCloseToThumbIyy  = (subjectParams.leftPalmCloseToThumbMass/12) * ((leftPalm_x/2)^2 + leftPalm_z^2);
+subjectParams.leftPalmCloseToThumbIzz  = (subjectParams.leftPalmCloseToThumbMass/12) * ((leftPalm_x/2)^2 + leftPalm_y^2);
+% -----
+% LEFT PALM FAR FROM THE THUMB (half of the left palm)
+% box sizes
+subjectParams.leftPalmFarFromThumbBox = [leftPalm_x/2, leftPalm_y, leftPalm_z];
+% box origin
+subjectParams.leftPalmFarFromThumbBoxOrigin = [-1/4 * leftPalm_x, 0, 0]; % jLeftPalm_roty
+% Mass and inertia
+subjectParams.leftPalmFarFromThumbMass = (25 * totalHandMass)/100; % 25% of the total hand mass, assumption!!!
+subjectParams.leftPalmFarFromThumbIxx  = (subjectParams.leftPalmFarFromThumbMass/12) * (leftPalm_y^2 + leftPalm_z^2);
+subjectParams.leftPalmFarFromThumbIyy  = (subjectParams.leftPalmFarFromThumbMass/12) * ((leftPalm_x/2)^2 + leftPalm_z^2);
+subjectParams.leftPalmFarFromThumbIzz  = (subjectParams.leftPalmFarFromThumbMass/12) * ((leftPalm_x/2)^2 + leftPalm_y^2);
 %% LEFT PINKY
 totalPinkyLength = 0.0356 * H; % LFL,from anthropometric assumption
 totalPinkyMass   = (7 * totalHandMass)/100; % 7% of the total hand mass, assumption!!!
@@ -253,7 +280,7 @@ totalPinkyMass   = (7 * totalHandMass)/100; % 7% of the total hand mass, assumpt
 subjectParams.leftPinky1_y = 1/2 * totalPinkyLength; % from anthropometric assumption
 subjectParams.leftPinky1_z = leftPalm_z; % model assumption
 % box origin
-subjectParams.jLeftPinky1_rotxOrigin = [-3/8 * leftPalm_x, leftPalm_y, 0]; % wrt jLeftWrist
+subjectParams.jLeftPinky1_rotxOrigin = [-3/8 * leftPalm_x, 1/2 * leftPalm_y, 0]; % wrt jLeftPalm_roty
 subjectParams.leftPinky1BoxOrigin    = 1/2 * [0, subjectParams.leftPinky1_y, 0]; % wrt jLeftPinky1_rotx
 % Mass and inertia
 subjectParams.leftPinky1Mass = 1/3 * totalPinkyMass;
@@ -294,7 +321,7 @@ totalRingMass   = (10 * totalHandMass)/100; % 10% of the total hand mass, assump
 subjectParams.leftRing1_y = 1/2 * totalRingLength; % from anthropometric assumption
 subjectParams.leftRing1_z = leftPalm_z; % model assumption
 % box origin
-subjectParams.jLeftRing1_rotxOrigin = [-1/8 * leftPalm_x, leftPalm_y, 0]; % wrt jLeftWrist
+subjectParams.jLeftRing1_rotxOrigin = [-1/8 * leftPalm_x, 1/2 * leftPalm_y, 0]; % wrt jLeftPalm_roty
 subjectParams.leftRing1BoxOrigin    = 1/2 * [0, subjectParams.leftRing1_y, 0]; % wrt jLeftRing1_rotx
 % Mass and inertia
 subjectParams.leftRing1Mass = 1/3 * totalRingMass;
