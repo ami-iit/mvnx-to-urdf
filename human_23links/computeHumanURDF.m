@@ -37,7 +37,7 @@ end
 %% Create a dialog box for user input data
 prompt = {'Subject number (e.g., 1):', ...
     'Model DoFs (e.g., 48 or 66):', ...
-    'Do you want to include the hands? (y or n)', ...
+    'Do you want to include the articulated hands? (y or n)', ...
     'Subject mass [Kg] (e.g., 60, 60.5):',...
     'Subject height [m] (e.g., 1.60):'};
 dlgtitle = 'Settings';
@@ -81,10 +81,19 @@ bucket.mass = str2double(cell2mat(userAnswer(4)));
 % Subject height
 bucket.height = str2double(cell2mat(userAnswer(5)));
 
-%% Create SUIT struct
+%% Print info
 disp('==========================================================================');
 fprintf('[Start] Computation of Subject_%02d URDF model\n',bucket.subjectID);
+fprintf('        - Model with %d DoFs (excluded hand DoFs)\n', str2double(cell2mat(userAnswer(2))));
+if modelWithHands
+    fprintf('        - Model with articulated hand\n');
+else
+    fprintf('        - Model without articulated hand\n');
+end
+fprintf('        - Subject mass: %.2f [kg]\n', str2double(cell2mat(userAnswer(4))));
+fprintf('        - Subject height: %.2f [m]\n', str2double(cell2mat(userAnswer(5))));
 
+%% Create SUIT struct
 if ~exist(fullfile(bucket.pathToProcessedData,'suit.mat'))
     % 1) ---extract data from .mvnx file
     bucket.mvnxFilename = fullfile(bucket.pathToRawData,sprintf('Subj-0%d.mvnx',bucket.subjectID));
@@ -120,5 +129,5 @@ else
         'filename',bucket.filenameURDF, ...
         'GazeboModel',true);
 end
-fprintf('[End] Computation of Subject_%02d URDF model\n',bucket.subjectID);
+fprintf('[End]   Computation of Subject_%02d URDF model\n',bucket.subjectID);
 disp('==========================================================================');
