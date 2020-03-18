@@ -6,7 +6,7 @@
 % - fill a user dialog box with
 %   1) the number of the subject (e.g., <1> if the raw data is 'Subj-01.mvnx');
 %   2) the number of DoFs of the URDF model (e.g., 48 or 66);
-%   3) option for hands/no hands model;
+%   3) option for articulated hands/no hands model;
 %   4) the mass in [Kg] of the subject;
 %   5) the height in [m] of the subject.
 
@@ -64,6 +64,12 @@ end
 modelWithHands = false; % by default
 if strcmp(userAnswer(3),'y')
     modelWithHands = true;
+
+    prompt = {'Do you want to use the anthropometric hand model? (y or n)', ...
+        'Do you want to use the markers-driven hand model? (y or n)'};
+    dlgtitle_hand = 'Settings';
+    userAnswer_hand = inputdlg(prompt,dlgtitle_hand);
+
     % template 48Dofs with the hands
     if model48DoFs
         bucket.filenameURDF = sprintf(fullfile(bucket.pathToProcessedData,'/XSensURDF_subj-0%d_%dDoFsHands.urdf'), ...
@@ -85,8 +91,10 @@ bucket.height = str2double(cell2mat(userAnswer(5)));
 disp('==========================================================================');
 fprintf('[Start] Computation of Subject_%02d URDF model\n',bucket.subjectID);
 fprintf('        - Model with %d DoFs (excluded hand DoFs)\n', str2double(cell2mat(userAnswer(2))));
-if modelWithHands
-    fprintf('        - Model with articulated hand\n');
+if modelWithHands && strcmp(userAnswer_hand(1),'y')
+    fprintf('        - Model with anthropometric hand model\n');
+elseif modelWithHands && strcmp(userAnswer_hand(2),'y')
+    fprintf('        - Model with markers-driven hand model\n');
 else
     fprintf('        - Model without articulated hand\n');
 end
@@ -108,10 +116,17 @@ else
     load(fullfile(bucket.pathToProcessedData,'suit.mat'));
 end
 
-%% Extract subject parameters from SUIT struct
+%% Extract subject parameters
 subjectParamsFromData = subjectParamsComputation(suit, bucket.mass);
-if modelWithHands
+if modelWithHands && strcmp(userAnswer_hand(1),'y')
+    % Anthropometric parameters for hands
     subjectParamsFromData = subjectParamsComputation_Hands(subjectParamsFromData, bucket.height, bucket.mass);
+elseif modelWithHands && strcmp(userAnswer_hand(2),'y')
+    % Markers-based parameters for hands
+    computeSubjectParamsFromMarkers; % TODO by the user
+    disp('[Warning] The subject parameters computation has to be written by the user!');
+    disp('[Warning] The URDF model cannot be created with this code!');
+    return;
 end
 save(fullfile(bucket.pathToProcessedData,'/subjectParamsFromData.mat'),'subjectParamsFromData');
 
