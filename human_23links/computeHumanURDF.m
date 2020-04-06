@@ -1,4 +1,11 @@
 
+% Copyright (C) 2019 Istituto Italiano di Tecnologia (IIT)
+% All rights reserved.
+%
+% This software may be modified and distributed under the terms of the
+% GNU Lesser General Public License v2.1 or any later version.
+
+%% computeHumanURDF
 % This script allows to create the URDF model of a human subject.
 %
 % The script requires to:
@@ -9,10 +16,6 @@
 %   3) option for articulated hands/no hands model;
 %   4) the mass in [Kg] of the subject;
 %   5) the height in [m] of the subject.
-
-
-% Author: Claudia Latella, 2019
-% Dynamic Interaction Control, Istituto Italiano di Tecnologia
 
 %% Preliminaries
 clear;clc;close all;

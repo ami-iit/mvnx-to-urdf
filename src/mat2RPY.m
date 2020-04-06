@@ -1,3 +1,10 @@
+
+% Copyright (C) 2019 Istituto Italiano di Tecnologia (IIT)
+% All rights reserved.
+%
+% This software may be modified and distributed under the terms of the
+% GNU Lesser General Public License v2.1 or any later version.
+
 function [rpy] = mat2RPY(R)
     %mat2RPY Utility function to convert from rotation matrix to RPY
     % This function map exactly the same code of iDynTree function

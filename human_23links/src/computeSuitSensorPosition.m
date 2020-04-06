@@ -1,3 +1,10 @@
+
+% Copyright (C) 2018 Istituto Italiano di Tecnologia (IIT)
+% All rights reserved.
+%
+% This software may be modified and distributed under the terms of the
+% GNU Lesser General Public License v2.1 or any later version.
+
 function [suit] = computeSuitSensorPosition(suit, len)
 % COMPUTESUITSENSORPOSITION computes the position of the sensors in the
 % suit wrt the link frame. It returns its value in a new field of the same
