@@ -29,7 +29,7 @@
         </collision>
 
     </link>
-    <!--Chain from (2) to (7)-->
+    <!--Chain TORSO-->
 	<link name="L5_f1">
         <inertial>
             <mass value="FAKEMASS"/>
@@ -232,7 +232,7 @@
         </collision>
 
     </link>
-	<!--Chain from (8) to (11)-->
+	<!--Chain RIGHT ARM (NO HAND)-->
 	<link name="RightShoulder">
         <inertial>
             <mass value="RIGHTSHOULDERMASS"/>
@@ -336,7 +336,7 @@
             <inertia ixx="FAKEIN" iyy="FAKEIN" izz="FAKEIN" ixy="0" ixz="0" iyz="0"/>
         </inertial>
     </link>
-	<!--RIGHT HAND-->
+	<!--Chain RIGHT HAND-->
 	<link name="RightPalmCloseToThumb">
         <inertial>
             <mass value="RIGHTPALMCLOSETOTHUMBMASS"/>
@@ -797,7 +797,7 @@
         </collision>
 
     </link>
-	<!--Chain from (12) to (15)-->
+	<!--Chain LEFT ARM (NO HAND)-->
 	<link name="LeftShoulder">
         <inertial>
             <mass value="LEFTSHOULDERMASS"/>
@@ -901,7 +901,7 @@
             <inertia ixx="FAKEIN" iyy="FAKEIN" izz="FAKEIN" ixy="0" ixz="0" iyz="0"/>
         </inertial>
     </link>
-	<!--LEFT HAND-->
+	<!--Chain LEFT HAND-->
 	<link name="LeftPalmCloseToThumb">
         <inertial>
             <mass value="LEFTPALMCLOSETOTHUMBMASS"/>
@@ -1362,7 +1362,7 @@
         </collision>
 
     </link>
-	<!--Chain from (16) to (19)-->
+	<!--Chain RIGHT LEG-->
 	<link name="RightUpperLeg_f1">
         <inertial>
             <mass value="FAKEMASS"/>
@@ -1497,7 +1497,7 @@
             </geometry>
         </collision>
     </link>
-	<!--Chain from (20) to (23)-->
+	<!--Chain LEFT LEG-->
 	<link name="LeftUpperLeg_f1">
         <inertial>
             <mass value="FAKEMASS"/>
@@ -1635,7 +1635,7 @@
 
 
 	<!--JOINTS-->
-	<!--Chain from (2) to (7)-->
+    <!--Chain TORSO-->
 	<joint name="jL5S1_rotx" type="revolute">
         <origin xyz="jL5S1_ORIGIN" rpy="0 0 0"/>
         <parent link="Pelvis"/>
@@ -1748,13 +1748,13 @@
         <limit effort="30" velocity="1.0" lower="-0.436332" upper="0.174533" />
         <axis xyz="0 1 0" />
     </joint>
-	<!--Chain from (8) to (11)-->
+	<!--Chain RIGHT ARM (NO HAND)-->
 	<joint name="jRightC7Shoulder_rotx" type="revolute">
         <origin xyz="jRightC7Shoulder_ORIGIN" rpy="0 0 0"/>
         <parent link="T8"/>
         <child link="RightShoulder"/>
         <dynamics damping="0.1" friction="0.0"/>
-        <limit effort="30" velocity="1.0" lower="-0.0872665" upper="0.785398" />
+        <limit effort="30" velocity="1.0" lower="-0.785398" upper="0.0872665" />
         <axis xyz="1 0 0" />
     </joint>
 	<joint name="jRightShoulder_rotx" type="revolute">
@@ -1813,7 +1813,7 @@
         <limit effort="30" velocity="1.0" lower="-0.523599" upper="0.349066" />
         <axis xyz="0 0 1" />
     </joint>
-	<!--RIGHT HAND-->
+	<!--Chain RIGHT HAND-->
 	<joint name="jRightPalm_roty" type="revolute">
         <origin xyz="jRightPalm_ORIGIN" rpy="0 0 0"/>
         <parent link="RightPalmCloseToThumb"/>
@@ -1982,7 +1982,7 @@
         <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
         <axis xyz="1 0 0" />
     </joint>
-	<!--Chain from (12) to (15)-->
+	<!--Chain LEFT ARM (NO HAND)-->
 	<joint name="jLeftC7Shoulder_rotx" type="revolute">
         <origin xyz="jLeftC7Shoulder_ORIGIN" rpy="0 0 0"/>
         <parent link="T8"/>
@@ -2047,7 +2047,7 @@
         <limit effort="30" velocity="1.0" lower="-0.349066" upper="0.523599" />
         <axis xyz="0 0 1" />
     </joint>
-	<!--LEFT HAND-->
+	<!--Chain LEFT HAND-->
 	<joint name="jLeftPalm_roty" type="revolute">
         <origin xyz="jLeftPalm_ORIGIN" rpy="0 0 0"/>
         <parent link="LeftPalmCloseToThumb"/>
@@ -2216,13 +2216,13 @@
 	    <limit effort="30" velocity="1.0" lower="-2.35619" upper="1.5708" />
 	    <axis xyz="1 0 0" />
 	</joint>
-	<!--Chain from (16) to (19)-->
+	<!--Chain RIGHT LEG-->
 	<joint name="jRightHip_rotx" type="revolute">
         <origin xyz="jRightHip_ORIGIN" rpy="0 0 0"/>
         <parent link="Pelvis"/>
         <child link="RightUpperLeg_f1"/>
         <dynamics damping="0.1" friction="0.0"/>
-        <limit effort="30" velocity="1.0" lower="-0.523599" upper="0.785398" />
+        <limit effort="30" velocity="1.0" lower="-0.785398" upper="0.523599" />
         <axis xyz="1 0 0" />
     </joint>
 	<joint name="jRightHip_roty" type="revolute">
@@ -2262,7 +2262,7 @@
         <parent link="RightLowerLeg"/>
         <child link="RightFoot_f1"/>
         <dynamics damping="0.1" friction="0.0"/>
-        <limit effort="30" velocity="1.0" lower="-0.610865" upper="0.785398" />
+        <limit effort="30" velocity="1.0" lower="-0.785398" upper="0.610865" />
         <axis xyz="1 0 0" />
     </joint>
 	<joint name="jRightAnkle_roty" type="revolute">
@@ -2289,7 +2289,7 @@
         <limit effort="30" velocity="1.0" lower="-0.174533" upper="1.5708" />
         <axis xyz="0 1 0" />
     </joint>
-	<!--Chain from (20) to (23)-->
+	<!--Chain LEFT LEG-->
 	<joint name="jLeftHip_rotx" type="revolute">
         <origin xyz="jLeftHip_ORIGIN" rpy="0 0 0"/>
         <parent link="Pelvis"/>

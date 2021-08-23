@@ -5,14 +5,13 @@
 % This software may be modified and distributed under the terms of the
 % GNU Lesser General Public License v2.1 or any later version.
 
-function [urdfModelTemplate] = createXsensLikeURDFmodel_withHands(DoFs_number, subjectParams, sensors, varargin)
+function [urdfModelTemplate] = createXsensLikeURDFmodel_withHands(DoFs_number, subjectParams, varargin)
 %CREATEXSENSLIKEURDFMODEL generates a URDF model of the subject.
 %
 % Inputs :
 % -  DoFs_number   : number of DoFs of the model;
 % -  subjectParams : anthropometric parameters coming from the previous
 %                    function;
-% -  sensors       :  sensors information coming from suit;
 % -  filename      : (optional) allows to save the file.urdf in a folder
 %                     called 'Models'.
 % -  GazeboModel   : (optional) true or false. If true a model for Gazebo
@@ -47,25 +46,6 @@ end
 
 fileUrdfName = sprintf('XSensModelStyle_%dURDFhands_template.urdf',DoFs_number);
 urdfModelTemplate = fileread(fileUrdfName);
-%% Check sensor existence
-if exist('sensors', 'var')
-    fileID = fopen(fileUrdfName, 'w');
-    for i = 1 : size(sensors,1)
-        fprintf(fileID,sprintf('<!-- Sensor % d-->\n',i));
-        fprintf(fileID,sprintf('<sensor name="%s_gyro" type="gyroscope">\n',sensors{i, 1}.label));
-        fprintf(fileID,sprintf('<parent link="%s"/>\n',sensors{i, 1}.attachedLink));
-        fprintf(fileID,sprintf('<origin xyz="%s" rpy="%s"/>\n</sensor>\n',num2str(sensors{i, 1}.position'),num2str(sensors{i, 1}.RPY)));
-        fprintf(fileID,sprintf('<sensor name="%s_accelerometer" type="accelerometer">\n',sensors{i, 1}.label));
-        fprintf(fileID,sprintf('<parent link="%s"/>\n',sensors{i, 1}.attachedLink));
-        fprintf(fileID,sprintf('<origin xyz="%s" rpy="%s"/>\n</sensor>\n',num2str(sensors{i, 1}.position'),num2str(sensors{i, 1}.RPY)));
-    end
-    %     sensorFile = fileread('XSensModelStyle_48URDFtemplate.urdf');
-    sensorFile = fileread(sprintf('XSensModelStyle_%dURDFhands_template.urdf',DoFs_number));
-    fclose(fileID);
-    delete(fullfile(pwd,fileUrdfName));
-    sensorsInsertingPoint = '<!--Insert sensors here, if any.-->';
-    urdfModelTemplate = strrep(urdfModelTemplate,sensorsInsertingPoint,sensorFile);
-end
 
 %% --LINK BASE
 %% PELVIS (solid: box)

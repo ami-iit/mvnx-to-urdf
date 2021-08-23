@@ -5,7 +5,7 @@
 % This software may be modified and distributed under the terms of the
 % GNU Lesser General Public License v2.1 or any later version.
 
-function [subjectParams] = subjectParamsComputation(suit, M)
+function [subjectParams] = subjectParamsComputation(suit, M, H)
 % SUBJECTPARAMSCOMPUTATTION computes sizes for bounding boxes by extracting
 % dimensions directly from suit data. The convention for the reference
 % frame is that one in Figure 60 of MVN user manual.
@@ -15,7 +15,7 @@ function [subjectParams] = subjectParamsComputation(suit, M)
 %   pHipOrigin. This is also the point of the location of the bounding
 %   box (so, the point wrt the COM is expressed).
 % - for all the other links, the location of the joint reference frame
-%   coincides with the bounding box origi (so, the point wrt the COM is
+%   coincides with the bounding box origin (so, the point wrt the COM is
 %   expressed).
 %
 % Important note:
@@ -209,6 +209,7 @@ subjectParams.rightUpperArmIzz        = (subjectParams.rightUpperArmMass/12) * (
 % joints
 [rightForearm_struct, ~] = linksFromName(suit.links, 'RightForeArm');
 [subjectParams.jRightWrist, ~] = pointsFromName(rightForearm_struct.points, 'jRightWrist');
+subjectParams.jRightWrist(2) = subjectParams.jRightWrist(2);
 % box sizes
 subjectParams.rightForeArm_y = abs(subjectParams.jRightWrist(2));
 subjectParams.rightForeArm_z = 2/3 * subjectParams.rightUpperArm_z; % assumption!!!
@@ -283,6 +284,7 @@ subjectParams.leftUpperArmIzz        = (subjectParams.leftUpperArmMass/12) * (3 
 % joints
 [leftForearm_struct, ~] = linksFromName(suit.links, 'LeftForeArm');
 [subjectParams.jLeftWrist, ~] = pointsFromName(leftForearm_struct.points, 'jLeftWrist');
+subjectParams.jLeftWrist(2) = subjectParams.jLeftWrist(2);
 % box sizes
 subjectParams.leftForeArm_y = abs(subjectParams.jLeftWrist(2));
 subjectParams.leftForeArm_z = 2/3 * subjectParams.leftUpperArm_z; % assumption!!!
@@ -316,6 +318,7 @@ subjectParams.leftHandIzz      = (subjectParams.leftHandMass/12) * (leftHand_x^2
 [subjectParams.pLeftTopOfHand, ~] = pointsFromName(leftHand_struct.points, 'pLeftTopOfHand');
 [subjectParams.pLeftPinky, ~] = pointsFromName(leftHand_struct.points, 'pLeftPinky');
 [subjectParams.pLeftBallHand, ~] = pointsFromName(leftHand_struct.points, 'pLeftBallHand');
+
 %% -- CHAIN LINKS 16-19
 %% RIGHT UPPER LEG
 % joints
