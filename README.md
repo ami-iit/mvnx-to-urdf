@@ -23,7 +23,7 @@
   Follow installation instructions [here](https://github.com/robotology/robotology-superbuild#installation).  The required library iDynTree will be automatically install via the superbuild.
 - Enable the Matlab bindings for iDynTree.
   ```
-  cd robotology-superbuild/build/robotology/iDynTree
+  cd robotology-superbuild/build/src/iDynTree
   cmake ..
   ccmake .
       ROBOTOLOGY_ENABLE_MATLAB    ON
@@ -44,6 +44,7 @@
 - The folder [`templates`](https://github.com/dic-iit/human-model-generator/tree/master/templates) containig human templates for URDF models.
 
 ### How to use it
+- Move to the folder where you clone the repo.
 - Run the script `computeHumanURDF.m`
 - Fill the dialog box with required info.
 
